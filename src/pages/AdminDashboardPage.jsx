@@ -1149,7 +1149,7 @@ export const AdminDashboardPage = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#011611] via-transparent to-transparent opacity-90" />
                     <div className="absolute bottom-3 left-3 right-3 p-3 rounded-lg glass-panel border border-emerald-500/30 text-center">
-                      <h5 className="text-sm font-bold text-white leading-tight">{editPrincipal.name || "Dr. H. Ahmad Dahlan, M.Ag."}</h5>
+                      <h5 className="text-sm font-bold text-white leading-tight">{editPrincipal.name || "Dr. H. Gilang Gumilang, S.Pd.I., M.Si."}</h5>
                       <span className="text-[11px] text-gold-300 font-medium block">{editPrincipal.title || "Kepala MA AL-GHAZALI"}</span>
                     </div>
                   </div>
@@ -1164,7 +1164,7 @@ export const AdminDashboardPage = () => {
                         type="text"
                         value={editPrincipal.name}
                         onChange={(e) => setEditPrincipal({ ...editPrincipal, name: e.target.value })}
-                        placeholder="Contoh: Dr. H. Ahmad Dahlan, M.Ag."
+                        placeholder="Contoh: Dr. H. Gilang Gumilang, S.Pd.I., M.Si."
                         className="w-full px-4 py-2.5 rounded-xl bg-emerald-950/70 border border-emerald-700/40 text-white text-sm"
                       />
                     </div>

@@ -70,7 +70,7 @@ export const ProfilPage = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#011611] via-transparent to-transparent opacity-80" />
                 <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl glass-panel border border-emerald-500/30 text-center">
-                  <h4 className="text-base font-bold text-white">{data.principal?.name || "Dr. H. Ahmad Dahlan, M.Ag."}</h4>
+                  <h4 className="text-base font-bold text-white">{data.principal?.name || "Dr. H. Gilang Gumilang, S.Pd.I., M.Si."}</h4>
                   <span className="text-xs text-gold-300 font-medium">{data.principal?.title || "Kepala MA AL-GHAZALI"}</span>
                 </div>
               </div>
