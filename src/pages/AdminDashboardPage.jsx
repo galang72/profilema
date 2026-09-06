@@ -41,6 +41,7 @@ import { useSchool } from '../context/SchoolContext';
 export const AdminDashboardPage = () => {
   const { 
     data, 
+    saveFullSchoolProfile,
     updateIdentity, 
     updateContact, 
     updateVisionMission,
@@ -155,42 +156,6 @@ export const AdminDashboardPage = () => {
       : data.principal?.greetingText || '',
   });
 
-  useEffect(() => {
-    if (data.identity) {
-      setEditIdentity({
-        name: data.identity.name,
-        motto: data.identity.motto,
-        subheadline: data.identity.subheadline,
-        accreditation: data.identity.accreditation,
-      });
-    }
-    if (data.contact) {
-      setEditContact({
-        address: data.contact.address,
-        phone: data.contact.phone,
-        whatsapp: data.contact.whatsapp,
-        email: data.contact.email,
-      });
-    }
-    if (data.visionMission) {
-      setEditVisionMission({
-        vision: data.visionMission.vision || '',
-        visionElaboration: data.visionMission.visionElaboration || '',
-      });
-    }
-    if (data.principal) {
-      setEditPrincipal({
-        name: data.principal.name || '',
-        title: data.principal.title || '',
-        photoUrl: data.principal.photoUrl || '',
-        greetingTitle: data.principal.greetingTitle || '',
-        greetingText: Array.isArray(data.principal.greetingText)
-          ? data.principal.greetingText.join('\n\n')
-          : data.principal.greetingText || '',
-      });
-    }
-  }, [data]);
-
   const handleLogin = (e) => {
     e.preventDefault();
     if (loginPass === 'admin123' || loginPass === 'alghazali') {
@@ -212,11 +177,9 @@ export const AdminDashboardPage = () => {
     setTimeout(() => setSaveToast(''), 3500);
   };
 
+  // Save Profile Handler (Atomic Save)
   const handleSaveProfile = (e) => {
     e.preventDefault();
-    updateIdentity(editIdentity);
-    updateContact(editContact);
-    updateVisionMission(editVisionMission);
     
     // Process greetingText into array of paragraphs
     const paragraphs = editPrincipal.greetingText
@@ -224,9 +187,16 @@ export const AdminDashboardPage = () => {
       .map(p => p.trim())
       .filter(Boolean);
 
-    updatePrincipal({
+    const processedPrincipal = {
       ...editPrincipal,
       greetingText: paragraphs.length > 0 ? paragraphs : [editPrincipal.greetingText]
+    };
+
+    saveFullSchoolProfile({
+      identity: editIdentity,
+      contact: editContact,
+      visionMission: editVisionMission,
+      principal: processedPrincipal,
     });
 
     triggerToast('Identitas, kontak, visi-misi & data Pimpinan berhasil disimpan!');

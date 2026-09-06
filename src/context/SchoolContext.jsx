@@ -32,7 +32,24 @@ export const SchoolProvider = ({ children }) => {
     }
   }, [data]);
 
-  // Actions for Admin and Public interactivity
+  const saveFullSchoolProfile = ({ identity, contact, visionMission, principal }) => {
+    setData((prev) => {
+      const updated = {
+        ...prev,
+        identity: identity ? { ...prev.identity, ...identity } : prev.identity,
+        contact: contact ? { ...prev.contact, ...contact } : prev.contact,
+        visionMission: visionMission ? { ...prev.visionMission, ...visionMission } : prev.visionMission,
+        principal: principal ? { ...(prev.principal || initialSchoolData.principal), ...principal } : prev.principal,
+      };
+      try {
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updated));
+      } catch (e) {
+        console.warn('Failed to save to local storage:', e);
+      }
+      return updated;
+    });
+  };
+
   const updateIdentity = (newIdentity) => {
     setData((prev) => ({
       ...prev,
@@ -236,6 +253,7 @@ export const SchoolProvider = ({ children }) => {
     <SchoolContext.Provider
       value={{
         data,
+        saveFullSchoolProfile,
         updateIdentity,
         updateContact,
         updateVisionMission,
