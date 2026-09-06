@@ -25,7 +25,7 @@ export const BeritaPage = () => {
   });
 
   return (
-    <div className="pt-28 pb-24 bg-transparent min-h-screen">
+    <div className="pt-32 sm:pt-36 pb-24 bg-transparent min-h-screen">
       
       {/* Header Banner */}
       <div className="relative py-16 bg-gradient-to-b from-[#02281e] to-[#011611] border-b border-emerald-500/20 mb-12 overflow-hidden">

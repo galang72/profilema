@@ -46,8 +46,8 @@ const AppContent = () => {
             alt="Gedung Kampus MA AL-GHAZALI Background"
             className="w-full h-full object-cover object-center filter brightness-95 contrast-105 opacity-80 sm:opacity-85 transition-all duration-500"
           />
-          {/* Subtle Glass Tint Layer */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#011611]/45 via-[#011611]/30 to-[#011611]/55" />
+          {/* Subtle Glass Tint Layer with Enhanced Mobile Contrast */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#011611]/80 via-[#011611]/65 to-[#011611]/85 sm:from-[#011611]/50 sm:via-[#011611]/35 sm:to-[#011611]/60" />
         </div>
 
         {/* Initial Loading Screen */}

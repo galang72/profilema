@@ -14,9 +14,7 @@ export const SchoolProvider = ({ children }) => {
         if (parsed.identity) {
           parsed.identity.logoUrl = '/logo-alghazali.png';
         }
-        if (!parsed.principal) {
-          parsed.principal = initialSchoolData.principal;
-        }
+        parsed.principal = { ...initialSchoolData.principal, ...(parsed.principal || {}) };
         return parsed;
       }
     } catch (e) {

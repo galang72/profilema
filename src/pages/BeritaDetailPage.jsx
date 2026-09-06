@@ -67,7 +67,7 @@ export const BeritaDetailPage = () => {
   };
 
   return (
-    <div className="pt-28 pb-24 bg-transparent min-h-screen">
+    <div className="pt-32 sm:pt-36 pb-24 bg-transparent min-h-screen">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Back Link */}
