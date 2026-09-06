@@ -22,7 +22,7 @@ export const initialSchoolData = {
   },
 
   principal: {
-    name: "Dr. H. Ahmad Dahlan, M.Ag.",
+    name: "Dr. H. Gilang Gumilang, S.Pd.I., M.Si.",
     title: "Kepala MA AL-GHAZALI",
     photoUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80",
     greetingTitle: "Mempersiapkan Generasi Muslim Berilmu Luas, Berjiwa Luhur, dan Berkarya Nyata",
