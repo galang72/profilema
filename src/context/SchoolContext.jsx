@@ -14,6 +14,9 @@ export const SchoolProvider = ({ children }) => {
         if (parsed.identity) {
           parsed.identity.logoUrl = '/logo-alghazali.png';
         }
+        if (!parsed.principal) {
+          parsed.principal = initialSchoolData.principal;
+        }
         return parsed;
       }
     } catch (e) {
@@ -113,6 +116,13 @@ export const SchoolProvider = ({ children }) => {
     setData((prev) => ({
       ...prev,
       visionMission: { ...prev.visionMission, ...newVisionMission }
+    }));
+  };
+
+  const updatePrincipal = (newPrincipal) => {
+    setData((prev) => ({
+      ...prev,
+      principal: { ...(prev.principal || initialSchoolData.principal), ...newPrincipal }
     }));
   };
 
@@ -231,6 +241,7 @@ export const SchoolProvider = ({ children }) => {
         updateIdentity,
         updateContact,
         updateVisionMission,
+        updatePrincipal,
         addArticle,
         deleteArticle,
         addGalleryItem,

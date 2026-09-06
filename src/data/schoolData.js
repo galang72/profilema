@@ -21,6 +21,20 @@ export const initialSchoolData = {
     heroTags: ["Berakhlak", "Berprestasi", "Berilmu", "Berkarakter"],
   },
 
+  principal: {
+    name: "Dr. H. Ahmad Dahlan, M.Ag.",
+    title: "Kepala MA AL-GHAZALI",
+    photoUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80",
+    greetingTitle: "Mempersiapkan Generasi Muslim Berilmu Luas, Berjiwa Luhur, dan Berkarya Nyata",
+    greetingText: [
+      "Assalamu'alaikum Warahmatullahi Wabarakatuh,",
+      "Alhamdulillah, puji syukur senantiasa kita panjatkan ke hadirat Allah SWT atas segala limpahan rahmat dan hidayah-Nya. Selamat datang di portal resmi MA AL-GHAZALI.",
+      "Pendidikan di era digital menuntut kesiapan ganda: penguasaan teknologi tingkat tinggi serta ketahanan moral dan spiritual yang tak tergoyahkan. Di MA AL-GHAZALI, kami berkomitmen merawat fitrah setiap santri agar bertumbuh menjadi pribadi cendekia yang hafal Al-Qur'an, cakap berbahasa internasional, menguasai literasi teknologi dan riset, serta memiliki kepekaan sosial yang tinggi.",
+      "Kami mengundang seluruh orang tua dan masyarakat untuk bersama-sama bersinergi mewujudkan peradaban ilmu yang bermartabat.",
+      "Wassalamu'alaikum Warahmatullahi Wabarakatuh."
+    ]
+  },
+
   stats: [
     { id: "stat-1", label: "Tahun Berdiri", value: 2008, suffix: "", description: "Melayani pendidikan berkualitas di Majalaya, Kab. Bandung" },
     { id: "stat-2", label: "Akreditasi", value: "B", suffix: "", isText: true, description: "Terakreditasi Kemenag & BAN-SM" },

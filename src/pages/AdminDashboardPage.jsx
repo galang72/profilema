@@ -44,6 +44,7 @@ export const AdminDashboardPage = () => {
     updateIdentity, 
     updateContact, 
     updateVisionMission,
+    updatePrincipal,
     addArticle, 
     deleteArticle, 
     addGalleryItem, 
@@ -144,6 +145,16 @@ export const AdminDashboardPage = () => {
     visionElaboration: data.visionMission?.visionElaboration || '',
   });
 
+  const [editPrincipal, setEditPrincipal] = useState({
+    name: data.principal?.name || '',
+    title: data.principal?.title || '',
+    photoUrl: data.principal?.photoUrl || '',
+    greetingTitle: data.principal?.greetingTitle || '',
+    greetingText: Array.isArray(data.principal?.greetingText)
+      ? data.principal.greetingText.join('\n\n')
+      : data.principal?.greetingText || '',
+  });
+
   useEffect(() => {
     if (data.identity) {
       setEditIdentity({
@@ -165,6 +176,17 @@ export const AdminDashboardPage = () => {
       setEditVisionMission({
         vision: data.visionMission.vision || '',
         visionElaboration: data.visionMission.visionElaboration || '',
+      });
+    }
+    if (data.principal) {
+      setEditPrincipal({
+        name: data.principal.name || '',
+        title: data.principal.title || '',
+        photoUrl: data.principal.photoUrl || '',
+        greetingTitle: data.principal.greetingTitle || '',
+        greetingText: Array.isArray(data.principal.greetingText)
+          ? data.principal.greetingText.join('\n\n')
+          : data.principal.greetingText || '',
       });
     }
   }, [data]);
@@ -195,7 +217,19 @@ export const AdminDashboardPage = () => {
     updateIdentity(editIdentity);
     updateContact(editContact);
     updateVisionMission(editVisionMission);
-    triggerToast('Identitas, kontak & visi-misi madrasah berhasil disimpan!');
+    
+    // Process greetingText into array of paragraphs
+    const paragraphs = editPrincipal.greetingText
+      .split('\n')
+      .map(p => p.trim())
+      .filter(Boolean);
+
+    updatePrincipal({
+      ...editPrincipal,
+      greetingText: paragraphs.length > 0 ? paragraphs : [editPrincipal.greetingText]
+    });
+
+    triggerToast('Identitas, kontak, visi-misi & data Pimpinan berhasil disimpan!');
   };
 
   const handleAddWave = (e) => {
@@ -1120,6 +1154,97 @@ export const AdminDashboardPage = () => {
                   onChange={(e) => setEditContact({ ...editContact, address: e.target.value })}
                   className="w-full px-4 py-2.5 rounded-xl bg-emerald-950/70 border border-emerald-700/40 text-white text-sm"
                 />
+              </div>
+            </div>
+
+            {/* 4. Data Pimpinan & Sambutan Kepala Sekolah */}
+            <div className="space-y-4 pt-4 border-t border-emerald-800/40">
+              <h4 className="text-sm font-bold text-gold-400 uppercase tracking-wider border-b border-emerald-800/40 pb-2 flex items-center justify-between">
+                <span>4. Pimpinan & Sambutan Kepala Sekolah</span>
+                <span className="text-xs font-normal text-amber-300">Dapat Diubah & Langsung Tampil</span>
+              </h4>
+
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+                {/* Live Preview Card */}
+                <div className="md:col-span-4 p-4 rounded-2xl bg-emerald-950 border border-emerald-700/50 space-y-3">
+                  <span className="text-[11px] font-bold text-slate-400 block text-center uppercase tracking-wider">Preview Kartu Pimpinan</span>
+                  <div className="rounded-xl overflow-hidden bg-emerald-900 aspect-[3/4] relative shadow-lg">
+                    <img
+                      src={editPrincipal.photoUrl || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80"}
+                      alt="Preview Kepala Madrasah"
+                      className="w-full h-full object-cover object-top"
+                      onError={(e) => {
+                        e.target.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80";
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#011611] via-transparent to-transparent opacity-90" />
+                    <div className="absolute bottom-3 left-3 right-3 p-3 rounded-lg glass-panel border border-emerald-500/30 text-center">
+                      <h5 className="text-sm font-bold text-white leading-tight">{editPrincipal.name || "Dr. H. Ahmad Dahlan, M.Ag."}</h5>
+                      <span className="text-[11px] text-gold-300 font-medium block">{editPrincipal.title || "Kepala MA AL-GHAZALI"}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Edit Form Inputs */}
+                <div className="md:col-span-8 space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-300 mb-1">Nama Lengkap & Gelar Pimpinan</label>
+                      <input
+                        type="text"
+                        value={editPrincipal.name}
+                        onChange={(e) => setEditPrincipal({ ...editPrincipal, name: e.target.value })}
+                        placeholder="Contoh: Dr. H. Ahmad Dahlan, M.Ag."
+                        className="w-full px-4 py-2.5 rounded-xl bg-emerald-950/70 border border-emerald-700/40 text-white text-sm"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-300 mb-1">Jabatan Resmi</label>
+                      <input
+                        type="text"
+                        value={editPrincipal.title}
+                        onChange={(e) => setEditPrincipal({ ...editPrincipal, title: e.target.value })}
+                        placeholder="Contoh: Kepala MA AL-GHAZALI"
+                        className="w-full px-4 py-2.5 rounded-xl bg-emerald-950/70 border border-emerald-700/40 text-white text-sm"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-300 mb-1">URL / Link Foto Pimpinan</label>
+                    <input
+                      type="url"
+                      value={editPrincipal.photoUrl}
+                      onChange={(e) => setEditPrincipal({ ...editPrincipal, photoUrl: e.target.value })}
+                      placeholder="Masukkan URL gambar foto (misal https://... atau /foto-kepala.jpg)"
+                      className="w-full px-4 py-2.5 rounded-xl bg-emerald-950/70 border border-emerald-700/40 text-white text-sm font-mono text-xs"
+                    />
+                    <p className="text-[11px] text-slate-400 mt-1">Anda dapat memasukkan link foto dari mana saja (seperti Unsplash, link internet, atau taruh foto di folder public/)</p>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-300 mb-1">Judul / Kutipan Utama Sambutan</label>
+                    <input
+                      type="text"
+                      value={editPrincipal.greetingTitle}
+                      onChange={(e) => setEditPrincipal({ ...editPrincipal, greetingTitle: e.target.value })}
+                      placeholder="Contoh: Mempersiapkan Generasi Muslim Berilmu Luas..."
+                      className="w-full px-4 py-2.5 rounded-xl bg-emerald-950/70 border border-emerald-700/40 text-white text-sm"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-300 mb-1">Teks Sambutan Pimpinan (Pisahkan Paragraf dengan Enter)</label>
+                    <textarea
+                      rows={5}
+                      value={editPrincipal.greetingText}
+                      onChange={(e) => setEditPrincipal({ ...editPrincipal, greetingText: e.target.value })}
+                      placeholder="Tulis sambutan pimpinan di sini..."
+                      className="w-full px-4 py-2.5 rounded-xl bg-emerald-950/70 border border-emerald-700/40 text-white text-sm leading-relaxed"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
 

@@ -64,14 +64,14 @@ export const ProfilPage = () => {
             <TiltCard maxTilt={8} className="rounded-3xl p-1 bg-gradient-to-tr from-gold-500/40 to-emerald-600/30">
               <div className="rounded-[22px] overflow-hidden bg-emerald-950 aspect-[3/4] relative">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80"
-                  alt="Kepala Madrasah MA AL-GHAZALI"
+                  src={data.principal?.photoUrl || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80"}
+                  alt={data.principal?.name || "Kepala MA AL-GHAZALI"}
                   className="w-full h-full object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#011611] via-transparent to-transparent opacity-80" />
                 <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl glass-panel border border-emerald-500/30 text-center">
-                  <h4 className="text-base font-bold text-white">Dr. H. Ahmad Dahlan, M.Ag.</h4>
-                  <span className="text-xs text-gold-300 font-medium">Kepala MA AL-GHAZALI</span>
+                  <h4 className="text-base font-bold text-white">{data.principal?.name || "Dr. H. Ahmad Dahlan, M.Ag."}</h4>
+                  <span className="text-xs text-gold-300 font-medium">{data.principal?.title || "Kepala MA AL-GHAZALI"}</span>
                 </div>
               </div>
             </TiltCard>
@@ -83,25 +83,19 @@ export const ProfilPage = () => {
             </div>
             
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-snug">
-              "Mempersiapkan Generasi Muslim Berilmu Luas, Berjiwa Luhur, dan Berkarya Nyata"
+              "{data.principal?.greetingTitle || "Mempersiapkan Generasi Muslim Berilmu Luas, Berjiwa Luhur, dan Berkarya Nyata"}"
             </h2>
 
             <div className="space-y-4 text-sm sm:text-base text-slate-300/90 leading-relaxed">
-              <p>
-                <em>Assalamu'alaikum Warahmatullahi Wabarakatuh,</em>
-              </p>
-              <p>
-                Alhamdulillah, puji syukur senantiasa kita panjatkan ke hadirat Allah SWT atas segala limpahan rahmat dan hidayah-Nya. Selamat datang di portal resmi <strong>MA AL-GHAZALI</strong>.
-              </p>
-              <p>
-                Pendidikan di era digital menuntut kesiapan ganda: penguasaan teknologi tingkat tinggi serta ketahanan moral dan spiritual yang tak tergoyahkan. Di MA AL-GHAZALI, kami berkomitmen merawat fitrah setiap santri agar bertumbuh menjadi pribadi cendekia yang hafal Al-Qur'an, cakap berbahasa internasional, menguasai literasi teknologi dan riset, serta memiliki kepekaan sosial yang tinggi.
-              </p>
-              <p>
-                Kami mengundang seluruh orang tua dan masyarakat untuk bersama-sama bersinergi mewujudkan peradaban ilmu yang bermartabat.
-              </p>
-              <p className="font-semibold text-emerald-300">
-                <em>Wassalamu'alaikum Warahmatullahi Wabarakatuh.</em>
-              </p>
+              {Array.isArray(data.principal?.greetingText) ? (
+                data.principal.greetingText.map((paragraph, idx) => (
+                  <p key={idx} className={idx === data.principal.greetingText.length - 1 ? "font-semibold text-emerald-300" : ""}>
+                    <em>{paragraph}</em>
+                  </p>
+                ))
+              ) : (
+                <p><em>{data.principal?.greetingText}</em></p>
+              )}
             </div>
           </div>
         </div>
