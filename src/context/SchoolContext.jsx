@@ -1,13 +1,16 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { initialSchoolData } from '../data/schoolData';
 
-const LOCAL_STORAGE_KEY = 'MA_ALGHAZALI_SITE_DATA_V1';
+const LOCAL_STORAGE_KEY = 'MA_ALGHAZALI_SITE_DATA_V5';
 
 const SchoolContext = createContext(null);
 
 export const SchoolProvider = ({ children }) => {
   const [data, setData] = useState(() => {
     try {
+      // Clear legacy cache keys from earlier versions
+      ['MA_ALGHAZALI_SITE_DATA_V1', 'MA_ALGHAZALI_SITE_DATA_V2', 'MA_ALGHAZALI_SITE_DATA_V3'].forEach(k => localStorage.removeItem(k));
+
       const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
