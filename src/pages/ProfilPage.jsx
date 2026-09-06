@@ -64,7 +64,7 @@ export const ProfilPage = () => {
             <TiltCard maxTilt={8} className="rounded-3xl p-1 bg-gradient-to-tr from-gold-500/40 to-emerald-600/30">
               <div className="rounded-[22px] overflow-hidden bg-emerald-950 aspect-[3/4] relative">
                 <img
-                  src={data.principal?.photoUrl || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80"}
+                  src={data.principal?.photoUrl || "https://github.com/galang72/profilema/blob/14711ad158c5c0099d3711ffc199b4bfd8c5dd89/src/assets/salman.jpg?raw=true"}
                   alt={data.principal?.name || "Kepala MA AL-GHAZALI"}
                   className="w-full h-full object-cover object-top"
                 />

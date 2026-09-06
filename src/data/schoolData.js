@@ -24,7 +24,7 @@ export const initialSchoolData = {
   principal: {
     name: "Dr. H. Gilang Gumilang, S.Pd.I., M.Si.",
     title: "Kepala MA AL-GHAZALI",
-    photoUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80",
+    photoUrl: "https://github.com/galang72/profilema/blob/14711ad158c5c0099d3711ffc199b4bfd8c5dd89/src/assets/salman.jpg?raw=true",
     greetingTitle: "Mempersiapkan Generasi Muslim Berilmu Luas, Berjiwa Luhur, dan Berkarya Nyata",
     greetingText: [
       "Assalamu'alaikum Warahmatullahi Wabarakatuh,",

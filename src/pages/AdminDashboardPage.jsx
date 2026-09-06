@@ -1140,11 +1140,11 @@ export const AdminDashboardPage = () => {
                   <span className="text-[11px] font-bold text-slate-400 block text-center uppercase tracking-wider">Preview Kartu Pimpinan</span>
                   <div className="rounded-xl overflow-hidden bg-emerald-900 aspect-[3/4] relative shadow-lg">
                     <img
-                      src={editPrincipal.photoUrl || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80"}
+                      src={editPrincipal.photoUrl || "https://github.com/galang72/profilema/blob/14711ad158c5c0099d3711ffc199b4bfd8c5dd89/src/assets/salman.jpg?raw=true"}
                       alt="Preview Kepala Madrasah"
                       className="w-full h-full object-cover object-top"
                       onError={(e) => {
-                        e.target.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80";
+                        e.target.src = "https://github.com/galang72/profilema/blob/14711ad158c5c0099d3711ffc199b4bfd8c5dd89/src/assets/salman.jpg?raw=true";
                       }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#011611] via-transparent to-transparent opacity-90" />
