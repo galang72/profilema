@@ -48,7 +48,7 @@ export const GaleriPage = () => {
             Galeri Kegiatan <span className="text-gradient-gold">Santri</span>
           </h1>
           <p className="text-slate-300 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-            Abadikan momen-momen berharga dalam proses menuntut ilmu, pengabdian masyarakat, serta torehan prestasi di MA AL-GHAZALI.
+            Abadikan momen-momen berharga dalam proses menuntut ilmu, pengabdian masyarakat, serta torehan prestasi di MA AL-GHOZALI.
           </p>
         </div>
       </div>

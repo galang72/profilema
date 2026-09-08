@@ -41,7 +41,7 @@ export const KontakSection = () => {
   const rawPhone = data.contact.whatsapp || '6285220944447';
   const cleanPhone = rawPhone.replace(/\D/g, '');
   const waDirectUrl = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(
-    'Halo Humas MA AL-GHAZALI, saya ingin menanyakan perihal informasi madrasah.'
+    'Halo Humas MA AL-GHOZALI, saya ingin menanyakan perihal informasi madrasah.'
   )}`;
 
   return (
@@ -49,7 +49,7 @@ export const KontakSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
           badge="Komunikasi & Layanan"
-          title="Hubungi MA AL-GHAZALI"
+          title="Hubungi MA AL-GHOZALI"
           subtitle="Pintu silaturahmi dan konsultasi kami senantiasa terbuka untuk menyambut calon santri, wali murid, dan masyarakat."
         />
 
@@ -120,7 +120,7 @@ export const KontakSection = () => {
             {/* Google Maps Embed Preview */}
             <div className="rounded-3xl overflow-hidden border border-emerald-500/20 shadow-xl h-56 bg-emerald-950 relative">
               <iframe
-                title="Peta Lokasi MA AL-GHAZALI"
+                title="Peta Lokasi MA AL-GHOZALI"
                 src={data.contact.mapsEmbedUrl}
                 width="100%"
                 height="100%"
@@ -148,7 +148,7 @@ export const KontakSection = () => {
                 {submitted && (
                   <div className="mb-6 p-4 rounded-2xl bg-emerald-900/80 border border-emerald-400/50 flex items-center gap-3 text-emerald-200 text-xs sm:text-sm shadow-glow-emerald">
                     <CheckCircle2 className="w-5 h-5 text-gold-400 shrink-0" />
-                    <span>Terima kasih! Pesan Anda telah terkirim. Tim MA AL-GHAZALI akan segera menghubungi Anda.</span>
+                    <span>Terima kasih! Pesan Anda telah terkirim. Tim MA AL-GHOZALI akan segera menghubungi Anda.</span>
                   </div>
                 )}
 

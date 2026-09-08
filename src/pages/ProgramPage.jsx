@@ -75,7 +75,7 @@ export const ProgramPage = () => {
         <div>
           <SectionHeading
             badge="Pilar Keunggulan"
-            title="Enam Program Unggulan MA AL-GHAZALI"
+            title="Enam Program Unggulan MA AL-GHOZALI"
             subtitle="Fokus pembinaan intensif yang dirancang untuk memperkuat keunikan potensi setiap santri."
           />
 
@@ -208,7 +208,7 @@ export const ProgramPage = () => {
         {/* Section 3: Target Kompetensi Lulusan */}
         <div className="p-8 sm:p-12 rounded-3xl glass-card-gold border border-gold-400/40">
           <h3 className="text-2xl font-bold text-white mb-6 text-center">
-            Profil & Target Kompetensi Lulusan MA AL-GHAZALI
+            Profil & Target Kompetensi Lulusan MA AL-GHOZALI
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {graduateTargets.map((gt, i) => (

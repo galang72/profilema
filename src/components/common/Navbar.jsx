@@ -49,7 +49,7 @@ export const Navbar = () => {
             <div className="relative w-11 h-11 flex items-center justify-center rounded-xl bg-gradient-to-br from-emerald-800/90 to-emerald-950/90 border border-gold-400/50 shadow-glow-emerald group-hover:scale-105 transition-transform duration-300 p-1">
               <img
                 src={data.identity.logoUrl}
-                alt="Logo MA AL-GHAZALI"
+                alt="Logo MA AL-GHOZALI"
                 className="w-full h-full object-contain drop-shadow-md relative z-10"
               />
             </div>

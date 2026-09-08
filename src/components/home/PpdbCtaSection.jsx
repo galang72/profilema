@@ -79,7 +79,7 @@ export const PpdbCtaSection = () => {
 
                 {/* Big Headline with blur -> sharp reveal */}
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight">
-                  Bersiap Menjadi Bagian dari <span className="text-gradient-gold">MA AL-GHAZALI</span>
+                  Bersiap Menjadi Bagian dari <span className="text-gradient-gold">MA AL-GHOZALI</span>
                 </h2>
 
                 <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-normal">

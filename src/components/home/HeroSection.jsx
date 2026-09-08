@@ -88,7 +88,7 @@ export const HeroSection = () => {
           <div className="w-16 h-16 sm:w-20 sm:h-20 p-2 rounded-2xl bg-emerald-950/80 border border-gold-400/50 shadow-glow-gold flex items-center justify-center backdrop-blur-md animate-float-medium">
             <img
               src={data.identity.logoUrl}
-              alt="Logo Resmi MA AL-GHAZALI"
+              alt="Logo Resmi MA AL-GHOZALI"
               className="w-full h-full object-contain drop-shadow-xl"
             />
           </div>
@@ -154,7 +154,7 @@ export const HeroSection = () => {
             onClick={scrollToProfile}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl text-base font-bold text-slate-100 glass-panel border border-emerald-500/30 hover:border-gold-400/50 hover:bg-emerald-900/40 hover:text-gold-300 transition-all duration-300"
           >
-            <span>Jelajahi MA AL-GHAZALI</span>
+            <span>Jelajahi MA AL-GHOZALI</span>
             <ChevronDown className="w-5 h-5 text-emerald-400" />
           </button>
         </div>

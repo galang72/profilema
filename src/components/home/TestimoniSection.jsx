@@ -34,7 +34,7 @@ export const TestimoniSection = () => {
         <SectionHeading
           badge="Suara Civitas & Alumni"
           title="Apa Kata Mereka?"
-          subtitle="Pengalaman berharga para santri, rasa bangga orang tua, dan jejak sukses para alumni MA AL-GHAZALI di dunia nyata."
+          subtitle="Pengalaman berharga para santri, rasa bangga orang tua, dan jejak sukses para alumni MA AL-GHOZALI di dunia nyata."
         />
 
         {/* Carousel Container */}

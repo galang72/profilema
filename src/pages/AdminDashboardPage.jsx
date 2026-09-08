@@ -34,7 +34,9 @@ import {
   Send,
   MessageCircle,
   User,
-  MailCheck
+  MailCheck,
+  ExternalLink,
+  Globe
 } from 'lucide-react';
 import { useSchool } from '../context/SchoolContext';
 
@@ -367,10 +369,10 @@ export const AdminDashboardPage = () => {
       <div className="pt-32 pb-24 min-h-screen bg-[#011611] flex items-center justify-center px-4">
         <div className="w-full max-w-md glass-card p-8 rounded-3xl border border-gold-500/30 shadow-2xl bg-gradient-to-b from-[#032920]/95 to-[#011611]/95 text-center relative overflow-hidden">
           <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-emerald-800 to-emerald-950 border border-gold-400 p-2 mx-auto mb-4 shadow-glow-gold flex items-center justify-center">
-            <img src="/logo-alghazali.png" alt="Logo MA AL-GHAZALI" className="w-full h-full object-contain" />
+            <img src="/logo-alghazali.png" alt="Logo MA AL-GHOZALI" className="w-full h-full object-contain" />
           </div>
           
-          <h2 className="text-2xl font-extrabold text-white mb-1">Admin Portal MA AL-GHAZALI</h2>
+          <h2 className="text-2xl font-extrabold text-white mb-1">Admin Portal MA AL-GHOZALI</h2>
           <p className="text-xs text-slate-300 mb-6">Masuk untuk mengelola data sekolah, gelombang PPDB, dan pertanyaan masuk.</p>
 
           <form onSubmit={handleLogin} className="space-y-4 text-left">
@@ -411,13 +413,13 @@ export const AdminDashboardPage = () => {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 p-6 rounded-3xl glass-card-gold border border-gold-400/30">
           <div className="flex items-center gap-4">
             <div className="w-14 h-14 rounded-2xl bg-emerald-950/90 border border-gold-400 p-1.5 shrink-0 shadow-glow-gold">
-              <img src="/logo-alghazali.png" alt="Logo MA AL-GHAZALI" className="w-full h-full object-contain" />
+              <img src="/logo-alghazali.png" alt="Logo MA AL-GHOZALI" className="w-full h-full object-contain" />
             </div>
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-300 mb-0.5">
                 <Sparkles className="w-3.5 h-3.5" /> Pusat Kontrol Manajemen Madrasah
               </div>
-              <h1 className="text-2xl font-extrabold text-white">Dashboard Admin MA AL-GHAZALI</h1>
+              <h1 className="text-2xl font-extrabold text-white">Dashboard Admin MA AL-GHOZALI</h1>
               <p className="text-xs text-slate-300">Data tersimpan otomatis & tersinkronisasi secara real-time.</p>
             </div>
           </div>
@@ -441,6 +443,130 @@ export const AdminDashboardPage = () => {
             >
               <Lock className="w-3.5 h-3.5" /> Keluar
             </button>
+          </div>
+        </div>
+
+        {/* 3 UTAMA PORTAL CARDS */}
+        <div className="space-y-3">
+          <div className="flex items-center justify-between">
+            <h2 className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-amber-300 flex items-center gap-2">
+              <Sparkles className="w-4 h-4 text-gold-400" />
+              Pusat Layanan Digital Admin MA AL-GHOZALI
+            </h2>
+            <span className="text-xs text-slate-400 hidden sm:inline">Pilih portal yang ingin diakses/dikelola</span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            
+            {/* CARD 1: ADMIN WEBSITE */}
+            <div
+              onClick={() => {
+                setActiveTab('ppdb');
+                const el = document.getElementById('admin-website-editor');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="group cursor-pointer p-6 rounded-3xl glass-card-gold border-2 border-gold-400/60 shadow-2xl hover:border-gold-300 transition-all duration-300 relative overflow-hidden flex flex-col justify-between"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gold-400/10 rounded-full blur-2xl group-hover:scale-150 transition-transform" />
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-800 to-emerald-950 border border-gold-400 p-2.5 shadow-glow-gold flex items-center justify-center text-gold-300">
+                    <Globe className="w-6 h-6" />
+                  </div>
+                  <span className="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-gold-500/20 text-gold-300 border border-gold-400/40">
+                    Pengelola Utama Website
+                  </span>
+                </div>
+
+                <h3 className="text-lg font-extrabold text-white mb-2 group-hover:text-amber-200 transition-colors">
+                  1. Admin Website MA AL-GHOZALI
+                </h3>
+                
+                <p className="text-xs text-slate-300 leading-relaxed mb-4">
+                  Kelola, edit, tambah, dan hapus seluruh tampilan website: data PPDB online, pesan masuk, berita, foto galeri, prestasi, fasilitas, dan profil pimpinan.
+                </p>
+              </div>
+
+              <div className="pt-3 border-t border-gold-400/20 flex items-center justify-between">
+                <span className="text-xs font-bold text-amber-300 flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400" /> Buka Panel Kelola Website
+                </span>
+                <span className="w-8 h-8 rounded-xl bg-gold-400 text-emerald-950 flex items-center justify-center font-bold group-hover:translate-x-1 transition-transform">
+                  &rarr;
+                </span>
+              </div>
+            </div>
+
+            {/* CARD 2: RDM (RAPOR DIGITAL MADRASAH) */}
+            <a
+              href="https://rdm.ma-alghozali.my.id/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-6 rounded-3xl glass-card border border-emerald-500/30 hover:border-emerald-400/80 shadow-2xl transition-all duration-300 relative overflow-hidden flex flex-col justify-between bg-gradient-to-b from-[#022c23]/90 to-[#011a14]/90"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl group-hover:scale-150 transition-transform" />
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-900/90 border border-emerald-500/50 p-2.5 shadow-glow-emerald flex items-center justify-center text-emerald-300">
+                    <BookOpen className="w-6 h-6" />
+                  </div>
+                  <span className="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                    Aplikasi Resmi Kemenag
+                  </span>
+                </div>
+
+                <h3 className="text-lg font-extrabold text-white mb-2 group-hover:text-emerald-300 transition-colors flex items-center gap-2">
+                  2. RDM (Rapor Digital) <ExternalLink className="w-4 h-4 text-emerald-400" />
+                </h3>
+                
+                <p className="text-xs text-slate-300 leading-relaxed mb-4">
+                  Akses langsung ke Portal RDM Kemenag RI MA AL-GHOZALI untuk penginputan nilai harian, nilai semester, leger, dan cetak Rapor Digital Santri.
+                </p>
+              </div>
+
+              <div className="pt-3 border-t border-emerald-700/30 flex items-center justify-between">
+                <span className="text-xs font-bold text-emerald-300 font-mono">rdm.ma-alghozali.my.id</span>
+                <span className="w-8 h-8 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 flex items-center justify-center font-bold group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform">
+                  &rarr;
+                </span>
+              </div>
+            </a>
+
+            {/* CARD 3: E-RAPOR MA AL-GHOZALI */}
+            <a
+              href="https://e-rapor.ma-alghozali.my.id/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-6 rounded-3xl glass-card border border-amber-500/30 hover:border-gold-400/80 shadow-2xl transition-all duration-300 relative overflow-hidden flex flex-col justify-between bg-gradient-to-b from-[#032f25]/90 to-[#011a14]/90"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl group-hover:scale-150 transition-transform" />
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-12 h-12 rounded-2xl bg-amber-950/90 border border-gold-400/50 p-2.5 shadow-glow-gold flex items-center justify-center text-amber-300">
+                    <FileSpreadsheet className="w-6 h-6" />
+                  </div>
+                  <span className="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/40">
+                    Portal Rapor Santri
+                  </span>
+                </div>
+
+                <h3 className="text-lg font-extrabold text-white mb-2 group-hover:text-gold-300 transition-colors flex items-center gap-2">
+                  3. E-RAPOR MA AL-GHOZALI <ExternalLink className="w-4 h-4 text-gold-400" />
+                </h3>
+                
+                <p className="text-xs text-slate-300 leading-relaxed mb-4">
+                  Akses langsung ke Portal E-Rapor Elektronik MA AL-GHOZALI untuk evaluasi pembelajaran dan pengolahan nilai rapor santri terpadu.
+                </p>
+              </div>
+
+              <div className="pt-3 border-t border-amber-700/30 flex items-center justify-between">
+                <span className="text-xs font-bold text-amber-300 font-mono">e-rapor.ma-alghozali.my.id</span>
+                <span className="w-8 h-8 rounded-xl bg-gold-400/20 border border-gold-400/40 text-gold-300 flex items-center justify-center font-bold group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform">
+                  &rarr;
+                </span>
+              </div>
+            </a>
+
           </div>
         </div>
 
@@ -523,7 +649,7 @@ export const AdminDashboardPage = () => {
         )}
 
         {/* Dashboard Tabs Header */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-emerald-800/40">
+        <div id="admin-website-editor" className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-emerald-800/40 scroll-mt-28">
           {[
             { id: 'ppdb', label: `Pendaftar PPDB (${totalPpdb})`, icon: Users },
             { id: 'messages', label: `Pesan Masuk (${unreadMessagesCount > 0 ? `${unreadMessagesCount} Baru` : totalMessages})`, icon: MessageSquare, badge: unreadMessagesCount },
@@ -906,7 +1032,7 @@ export const AdminDashboardPage = () => {
                 filteredMessages.map((msg) => {
                   const cleanPhone = (msg.whatsapp || '').replace(/\D/g, '');
                   const waReplyUrl = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(
-                    `Assalamu'alaikum Wr. Wb. Yth. ${msg.name},\n\nTerima kasih telah menghubungi MA AL-GHAZALI Majalaya. Menanggapi pertanyaan Anda:\n"${msg.message}"\n\n`
+                    `Assalamu'alaikum Wr. Wb. Yth. ${msg.name},\n\nTerima kasih telah menghubungi MA AL-GHOZALI Majalaya. Menanggapi pertanyaan Anda:\n"${msg.message}"\n\n`
                   )}`;
 
                   return (
@@ -1150,7 +1276,7 @@ export const AdminDashboardPage = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#011611] via-transparent to-transparent opacity-90" />
                     <div className="absolute bottom-3 left-3 right-3 p-3 rounded-lg glass-panel border border-emerald-500/30 text-center">
                       <h5 className="text-sm font-bold text-white leading-tight">{editPrincipal.name || "Dr. H. Gilang Gumilang, S.Pd.I., M.Si."}</h5>
-                      <span className="text-[11px] text-gold-300 font-medium block">{editPrincipal.title || "Kepala MA AL-GHAZALI"}</span>
+                      <span className="text-[11px] text-gold-300 font-medium block">{editPrincipal.title || "Kepala MA AL-GHOZALI"}</span>
                     </div>
                   </div>
                 </div>
@@ -1175,7 +1301,7 @@ export const AdminDashboardPage = () => {
                         type="text"
                         value={editPrincipal.title}
                         onChange={(e) => setEditPrincipal({ ...editPrincipal, title: e.target.value })}
-                        placeholder="Contoh: Kepala MA AL-GHAZALI"
+                        placeholder="Contoh: Kepala MA AL-GHOZALI"
                         className="w-full px-4 py-2.5 rounded-xl bg-emerald-950/70 border border-emerald-700/40 text-white text-sm"
                       />
                     </div>

@@ -54,7 +54,7 @@ export const GaleriSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
           badge="Dokumentasi Visual"
-          title="Galeri Kegiatan MA AL-GHAZALI"
+          title="Galeri Kegiatan MA AL-GHOZALI"
           subtitle="Potret keseharian santri dalam menuntut ilmu, beribadah, berkarya seni, dan berkompetisi secara sportif."
         />
 

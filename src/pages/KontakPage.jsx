@@ -45,7 +45,7 @@ export const KontakPage = () => {
 
   const faqs = [
     {
-      q: "Apakah MA AL-GHAZALI menyediakan program asrama (boarding)?",
+      q: "Apakah MA AL-GHOZALI menyediakan program asrama (boarding)?",
       a: "Ya, kami menyediakan opsi program asrama (Boarding School) khusus santri tahfidz dan program intensif dengan pembinaan ibadah dan akhlak 24 jam di bawah bimbingan para musyrif dan musyrifah."
     },
     {
@@ -53,8 +53,8 @@ export const KontakPage = () => {
       a: "Calon santri yang memiliki hafalan Al-Qur'an minimal 5 Juz mutqin berhak mengikuti seleksi Jalur Beasiswa Tahfidz pada Gelombang 1 dengan melampirkan sertifikat/syahadah tahfidz saat mendaftar online."
     },
     {
-      q: "Apakah ijazah MA AL-GHAZALI diakui untuk mendaftar ke PTN dan luar negeri?",
-      a: "Tentu. MA AL-GHAZALI berada di bawah naungan Kementerian Agama RI dan terakreditasi A (Unggul) oleh BAN-SM. Lulusan kami memiliki hak dan peluang yang setara dalam seleksi SNBP, SNBT, SPAN-PTKIN, serta beasiswa perguruan tinggi luar negeri seperti Universitas Al-Azhar Kairo."
+      q: "Apakah ijazah MA AL-GHOZALI diakui untuk mendaftar ke PTN dan luar negeri?",
+      a: "Tentu. MA AL-GHOZALI berada di bawah naungan Kementerian Agama RI dan terakreditasi A (Unggul) oleh BAN-SM. Lulusan kami memiliki hak dan peluang yang setara dalam seleksi SNBP, SNBT, SPAN-PTKIN, serta beasiswa perguruan tinggi luar negeri seperti Universitas Al-Azhar Kairo."
     },
     {
       q: "Kapan jam operasional kantor pelayanan madrasah?",
@@ -74,7 +74,7 @@ export const KontakPage = () => {
             Layanan Informasi
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
-            Hubungi & Kunjungi <span className="text-gradient-gold">MA AL-GHAZALI</span>
+            Hubungi & Kunjungi <span className="text-gradient-gold">MA AL-GHOZALI</span>
           </h1>
           <p className="text-slate-300 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
             Kami dengan senang hati menjawab setiap pertanyaan dan menyambut kunjungan silaturahmi Bapak/Ibu ke kampus madrasah.
@@ -136,7 +136,7 @@ export const KontakPage = () => {
             {/* Google Maps Embed */}
             <div className="rounded-3xl overflow-hidden border border-emerald-500/20 shadow-xl h-64 bg-emerald-950">
               <iframe
-                title="Peta Lokasi MA AL-GHAZALI"
+                title="Peta Lokasi MA AL-GHOZALI"
                 src={data.contact.mapsEmbedUrl}
                 width="100%"
                 height="100%"

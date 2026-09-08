@@ -39,7 +39,7 @@ export const ProfilPage = () => {
           <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-5 p-2 rounded-2xl bg-emerald-950/70 border border-gold-400/50 shadow-glow-gold flex items-center justify-center animate-float-slow">
             <img
               src={data.identity.logoUrl}
-              alt="Logo Resmi MA AL-GHAZALI"
+              alt="Logo Resmi MA AL-GHOZALI"
               className="w-full h-full object-contain drop-shadow-lg"
             />
           </div>
@@ -51,7 +51,7 @@ export const ProfilPage = () => {
             Profil <span className="text-gradient-gold">{data.identity.name}</span>
           </h1>
           <p className="text-slate-300 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-            Meneladani semangat kecendekiawanan Hujjatul Islam Imam Al-Ghazali dalam memadukan ilmu aqliyah dan naqliyah bagi generasi muslim masa kini.
+            Meneladani semangat kecendekiawanan Hujjatul Islam Imam Al-Ghozali dalam memadukan ilmu aqliyah dan naqliyah bagi generasi muslim masa kini.
           </p>
         </div>
       </div>
@@ -65,13 +65,13 @@ export const ProfilPage = () => {
               <div className="rounded-[22px] overflow-hidden bg-emerald-950 aspect-[3/4] relative">
                 <img
                   src={data.principal?.photoUrl || "https://github.com/galang72/profilema/blob/14711ad158c5c0099d3711ffc199b4bfd8c5dd89/src/assets/salman.jpg?raw=true"}
-                  alt={data.principal?.name || "Kepala MA AL-GHAZALI"}
+                  alt={data.principal?.name || "Kepala MA AL-GHOZALI"}
                   className="w-full h-full object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#011611] via-transparent to-transparent opacity-80" />
                 <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl glass-panel border border-emerald-500/30 text-center">
                   <h4 className="text-base font-bold text-white">{data.principal?.name || "Dr. H. Gilang Gumilang, S.Pd.I., M.Si."}</h4>
-                  <span className="text-xs text-gold-300 font-medium">{data.principal?.title || "Kepala MA AL-GHAZALI"}</span>
+                  <span className="text-xs text-gold-300 font-medium">{data.principal?.title || "Kepala MA AL-GHOZALI"}</span>
                 </div>
               </div>
             </TiltCard>
@@ -102,16 +102,16 @@ export const ProfilPage = () => {
 
         {/* Sejarah & Latar Belakang */}
         <div className="glass-card p-8 sm:p-12 rounded-3xl border border-emerald-500/20 bg-gradient-to-b from-emerald-950/60 to-[#02241b]/80">
-          <h3 className="text-2xl font-bold text-white mb-4">Sejarah Berdirinya MA AL-GHAZALI</h3>
+          <h3 className="text-2xl font-bold text-white mb-4">Sejarah Berdirinya MA AL-GHOZALI</h3>
           <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
             <p>
-              Didirikan pada tahun <strong>2008</strong> di bawah naungan Yayasan Pendidikan Islam Al-Ghazali, madrasah ini berawal dari kegelisahan para ulama dan tokoh masyarakat akan perlunya madrasah aliyah tingkat atas yang tidak sekadar menyajikan teori agama secara konvensional, melainkan menyandingkannya secara seimbang dengan kemajuan sains dan teknologi abad ke-21.
+              Didirikan pada tahun <strong>2008</strong> di bawah naungan Yayasan Pendidikan Islam Al-Ghozali, madrasah ini berawal dari kegelisahan para ulama dan tokoh masyarakat akan perlunya madrasah aliyah tingkat atas yang tidak sekadar menyajikan teori agama secara konvensional, melainkan menyandingkannya secara seimbang dengan kemajuan sains dan teknologi abad ke-21.
             </p>
             <p>
-              Nama <em>Al-Ghazali</em> disematkan sebagai doa dan komitmen untuk meneladani figur monumental Abu Hamid Al-Ghazali, sang pembaharu peradaban Islam yang berhasil mengintegrasikan kedalaman sufistik, ketajaman filsafat logika, dan keteguhan syariat Islam.
+              Nama <em>Al-Ghozali</em> disematkan sebagai doa dan komitmen untuk meneladani figur monumental Abu Hamid Al-Ghozali, sang pembaharu peradaban Islam yang berhasil mengintegrasikan kedalaman sufistik, ketajaman filsafat logika, dan keteguhan syariat Islam.
             </p>
             <p>
-              Kini, dengan akreditasi <strong>A (Unggul)</strong> dari Badan Akreditasi Nasional Sekolah/Madrasah (BAN-SM), MA AL-GHAZALI telah meluluskan ribuan alumni yang tersebar di berbagai universitas terkemuka seperti UI, ITB, UGM, Unpad, IPB, UIN Syarif Hidayatullah, hingga Universitas Al-Azhar di Kairo, Mesir.
+              Kini, dengan akreditasi <strong>A (Unggul)</strong> dari Badan Akreditasi Nasional Sekolah/Madrasah (BAN-SM), MA AL-GHOZALI telah meluluskan ribuan alumni yang tersebar di berbagai universitas terkemuka seperti UI, ITB, UGM, Unpad, IPB, UIN Syarif Hidayatullah, hingga Universitas Al-Azhar di Kairo, Mesir.
             </p>
           </div>
         </div>
@@ -120,7 +120,7 @@ export const ProfilPage = () => {
         <div>
           <SectionHeading
             badge="Karakter Santri"
-            title="Empat Pilar Nilai Dasar MA AL-GHAZALI"
+            title="Empat Pilar Nilai Dasar MA AL-GHOZALI"
             subtitle="Prinsip utama yang diinternalisasikan dalam kehidupan harian civitas madrasah."
           />
 

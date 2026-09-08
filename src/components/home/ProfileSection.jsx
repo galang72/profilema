@@ -102,7 +102,7 @@ export const ProfileSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
           badge="Profil Lembaga"
-          title="Mengenal MA AL-GHAZALI"
+          title="Mengenal MA AL-GHOZALI"
           subtitle="Pondasi keilmuan yang kokoh dan berkarakter, mengantarkan santri menuju masa depan gemilang di kancah nasional maupun global."
         />
 
@@ -118,7 +118,7 @@ export const ProfileSection = () => {
               <div className="relative rounded-[22px] overflow-hidden bg-emerald-950 aspect-[4/3] sm:aspect-[16/11]">
                 <img
                   src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=1000&q=80"
-                  alt="Gedung Kampus MA AL-GHAZALI"
+                  alt="Gedung Kampus MA AL-GHOZALI"
                   className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                 />
                 
@@ -156,11 +156,11 @@ export const ProfileSection = () => {
               </h3>
               
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
-                <strong>MA AL-GHAZALI</strong> merupakan lembaga pendidikan yang berkomitmen menghadirkan pendidikan berkualitas dengan memadukan nilai-nilai keislaman, ilmu pengetahuan, teknologi, dan pembentukan karakter peserta didik.
+                <strong>MA AL-GHOZALI</strong> merupakan lembaga pendidikan yang berkomitmen menghadirkan pendidikan berkualitas dengan memadukan nilai-nilai keislaman, ilmu pengetahuan, teknologi, dan pembentukan karakter peserta didik.
               </p>
 
               <p className="text-slate-300/80 text-sm leading-relaxed mb-6">
-                Terinspirasi oleh keteladanan intelektual dan spiritual Imam Al-Ghazali, madrasah kami mendidik para santri agar tidak hanya cerdas dalam bernalar sains modern, tetapi juga memiliki kebersihan hati, akhlak terpuji, dan kesiapan bersaing di era digital.
+                Terinspirasi oleh keteladanan intelektual dan spiritual Imam Al-Ghozali, madrasah kami mendidik para santri agar tidak hanya cerdas dalam bernalar sains modern, tetapi juga memiliki kebersihan hati, akhlak terpuji, dan kesiapan bersaing di era digital.
               </p>
 
               <div className="flex flex-wrap gap-3 pt-2">

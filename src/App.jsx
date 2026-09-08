@@ -43,7 +43,7 @@ const AppContent = () => {
           {/* School Building Photo */}
           <img
             src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=2400&q=80"
-            alt="Gedung Kampus MA AL-GHAZALI Background"
+            alt="Gedung Kampus MA AL-GHOZALI Background"
             className="w-full h-full object-cover object-center filter brightness-95 contrast-105 opacity-80 sm:opacity-85 transition-all duration-500"
           />
           {/* Subtle Glass Tint Layer with Enhanced Mobile Contrast */}

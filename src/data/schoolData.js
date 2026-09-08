@@ -1,14 +1,14 @@
 /**
- * MA AL-GHAZALI (MAS AL-GOZALI) - Centralized Official Data Configuration
+ * MA AL-GHOZALI (MAS AL-GOZALI) - Centralized Official Data Configuration
  * Berdasarkan Data Referensi Resmi Kemendikdasmen & Kementerian Agama RI
  * NPSN: 20177983
  */
 
 export const initialSchoolData = {
   identity: {
-    name: "MA AL-GHAZALI",
+    name: "MA AL-GHOZALI",
     fullName: "Madrasah Aliyah Swasta Al-Gozali",
-    shortName: "Al-Ghazali Majalaya",
+    shortName: "Al-Ghozali Majalaya",
     npsn: "20177983",
     nsm: "131232040045",
     type: "Madrasah Aliyah (Kemenag RI)",
@@ -16,20 +16,20 @@ export const initialSchoolData = {
     accreditation: "B (Terakreditasi)",
     status: "Swasta Terakreditasi",
     motto: "Membentuk Generasi Berilmu, Berakhlak dan Berprestasi",
-    subheadline: "MA AL-GHAZALI (MAS AL-GOZALI Majalaya, Kab. Bandung) hadir sebagai madrasah yang mengintegrasikan pendidikan Islam, ilmu pengetahuan, teknologi, dan pembentukan karakter untuk mempersiapkan generasi masa depan.",
+    subheadline: "MA AL-GHOZALI (MAS AL-GOZALI Majalaya, Kab. Bandung) hadir sebagai madrasah yang mengintegrasikan pendidikan Islam, ilmu pengetahuan, teknologi, dan pembentukan karakter untuk mempersiapkan generasi masa depan.",
     logoUrl: "/logo-alghazali.png",
     heroTags: ["Berakhlak", "Berprestasi", "Berilmu", "Berkarakter"],
   },
 
   principal: {
     name: "Dr. H. Gilang Gumilang, S.Pd.I., M.Si.",
-    title: "Kepala MA AL-GHAZALI",
+    title: "Kepala MA AL-GHOZALI",
     photoUrl: "https://github.com/galang72/profilema/blob/14711ad158c5c0099d3711ffc199b4bfd8c5dd89/src/assets/salman.jpg?raw=true",
     greetingTitle: "Mempersiapkan Generasi Muslim Berilmu Luas, Berjiwa Luhur, dan Berkarya Nyata",
     greetingText: [
       "Assalamu'alaikum Warahmatullahi Wabarakatuh,",
-      "Alhamdulillah, puji syukur senantiasa kita panjatkan ke hadirat Allah SWT atas segala limpahan rahmat dan hidayah-Nya. Selamat datang di portal resmi MA AL-GHAZALI.",
-      "Pendidikan di era digital menuntut kesiapan ganda: penguasaan teknologi tingkat tinggi serta ketahanan moral dan spiritual yang tak tergoyahkan. Di MA AL-GHAZALI, kami berkomitmen merawat fitrah setiap santri agar bertumbuh menjadi pribadi cendekia yang hafal Al-Qur'an, cakap berbahasa internasional, menguasai literasi teknologi dan riset, serta memiliki kepekaan sosial yang tinggi.",
+      "Alhamdulillah, puji syukur senantiasa kita panjatkan ke hadirat Allah SWT atas segala limpahan rahmat dan hidayah-Nya. Selamat datang di portal resmi MA AL-GHOZALI.",
+      "Pendidikan di era digital menuntut kesiapan ganda: penguasaan teknologi tingkat tinggi serta ketahanan moral dan spiritual yang tak tergoyahkan. Di MA AL-GHOZALI, kami berkomitmen merawat fitrah setiap santri agar bertumbuh menjadi pribadi cendekia yang hafal Al-Qur'an, cakap berbahasa internasional, menguasai literasi teknologi dan riset, serta memiliki kepekaan sosial yang tinggi.",
       "Kami mengundang seluruh orang tua dan masyarakat untuk bersama-sama bersinergi mewujudkan peradaban ilmu yang bermartabat.",
       "Wassalamu'alaikum Warahmatullahi Wabarakatuh."
     ]
@@ -50,14 +50,14 @@ export const initialSchoolData = {
     phone: "+62 852-2094-4447",
     whatsapp: "6285220944447",
     whatsappDisplay: "+62 852-2094-4447",
-    email: "info@maalghazali.sch.id",
+    email: "info@ma-alghozali.my.id",
     officeHours: "Senin - Sabtu: 07.00 - 16.00 WIB",
     mapsEmbedUrl: "https://maps.google.com/maps?q=-6.927300,107.741900&hl=id&z=15&output=embed",
     socialMedia: {
-      instagram: "https://instagram.com/maalghazali_official",
-      youtube: "https://youtube.com/@maalghazaliofficial",
-      facebook: "https://facebook.com/maalghazaliofficial",
-      tiktok: "https://tiktok.com/@maalghazali",
+      instagram: "https://instagram.com/maalghozali_official",
+      youtube: "https://youtube.com/@maalghozaliofficial",
+      facebook: "https://facebook.com/maalghozaliofficial",
+      tiktok: "https://tiktok.com/@maalghozali",
     }
   },
 
@@ -268,7 +268,7 @@ export const initialSchoolData = {
       title: "Juara 1 National Robotic & IoT Madrasah Innovation",
       category: "Teknologi",
       level: "Tingkat Nasional",
-      winner: "Tim Robotics MA Al-Ghazali",
+      winner: "Tim Robotics MA Al-Ghozali",
       desc: "Menciptakan prototipe sistem irigasi pintar berbasis energi surya dan sensor kelembaban tanah otomatis.",
       icon: "Cpu"
     },
@@ -288,7 +288,7 @@ export const initialSchoolData = {
       title: "Juara 1 Festival Seni Hadroh Klasik & Kontemporer",
       category: "Seni & Budaya",
       level: "Tingkat Provinsi",
-      winner: "Grup Hadroh Ash-Shofa Al-Ghazali",
+      winner: "Grup Hadroh Ash-Shofa Al-Ghozali",
       desc: "Menampilkan aransemen shalawat harmonis dengan presisi vokal dan ketukan perkusi terbaik.",
       icon: "Sparkles"
     },
@@ -298,7 +298,7 @@ export const initialSchoolData = {
       title: "Juara Umum PORSENI Cabang Futsal Pelajar Madrasah",
       category: "Olahraga",
       level: "Tingkat Kabupaten Bandung",
-      winner: "Tim Futsal Putra Al-Ghazali",
+      winner: "Tim Futsal Putra Al-Ghozali",
       desc: "Meraih gelar juara tanpa kekalahan sepanjang turnamen dengan sportivitas dan kerjasama tim yang solid.",
       icon: "Medal"
     }
@@ -317,7 +317,7 @@ export const initialSchoolData = {
       title: "Halaqah Tahfidz & Khotmil Qur'an Santri",
       category: "Keagamaan",
       image: "https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=1200&q=80",
-      caption: "Momen khusyuk setoran hafalan Al-Qur'an ba'da shalat Subuh berjamaah di Masjid Al-Ghazali."
+      caption: "Momen khusyuk setoran hafalan Al-Qur'an ba'da shalat Subuh berjamaah di Masjid Al-Ghozali."
     },
     {
       id: "gal-3",
@@ -331,14 +331,14 @@ export const initialSchoolData = {
       title: "Latihan Rutin Pramuka & Pembinaan Disiplin",
       category: "Ekstrakurikuler",
       image: "https://images.unsplash.com/photo-1526976668912-1a811878dd37?auto=format&fit=crop&w=1200&q=80",
-      caption: "Pemberian materi kepanduan, pioneering, dan survival cerdas bagi anggota Ambalan Al-Ghazali."
+      caption: "Pemberian materi kepanduan, pioneering, dan survival cerdas bagi anggota Ambalan Al-Ghozali."
     },
     {
       id: "gal-5",
       title: "Penerimaan Medali Juara Kompetisi Sains",
       category: "Perlombaan",
       image: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
-      caption: "Penyerahan trofi dan piagam penghargaan kepada delegasi olimpiade sains MA Al-Ghazali."
+      caption: "Penyerahan trofi dan piagam penghargaan kepada delegasi olimpiade sains MA Al-Ghozali."
     },
     {
       id: "gal-6",
@@ -380,7 +380,7 @@ export const initialSchoolData = {
     {
       id: "berita-1",
       slug: "prestasi-membanggakan-ksm-2026",
-      title: "Siswa MA AL-GHAZALI Sabet Medali Emas KSM Fisika Tingkat Provinsi 2026",
+      title: "Siswa MA AL-GHOZALI Sabet Medali Emas KSM Fisika Tingkat Provinsi 2026",
       category: "Prestasi",
       date: "04 Maret 2026",
       author: "Humas Madrasah",
@@ -388,27 +388,27 @@ export const initialSchoolData = {
       thumbnail: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
       summary: "Ahmad Rayhan Al-Fatih kembali mengharumkan nama madrasah dengan meraih medali emas pada ajang bergengsi Kompetisi Sains Madrasah tahun 2026.",
       content: `
-        <p>Prestasi membanggakan kembali ditorehkan oleh peserta didik MA AL-GHAZALI. Dalam perhelatan bergengsi Kompetisi Sains Madrasah (KSM) tingkat Provinsi Jawa Barat yang diselenggarakan oleh Kementerian Agama RI pekan lalu, ananda <strong>Ahmad Rayhan Al-Fatih</strong> (Kelas XII MIPA 1) berhasil menyabet Medali Emas untuk bidang studi Fisika Terintegrasi.</p>
+        <p>Prestasi membanggakan kembali ditorehkan oleh peserta didik MA AL-GHOZALI. Dalam perhelatan bergengsi Kompetisi Sains Madrasah (KSM) tingkat Provinsi Jawa Barat yang diselenggarakan oleh Kementerian Agama RI pekan lalu, ananda <strong>Ahmad Rayhan Al-Fatih</strong> (Kelas XII MIPA 1) berhasil menyabet Medali Emas untuk bidang studi Fisika Terintegrasi.</p>
         
-        <p>Kepala MA AL-GHAZALI menyampaikan apresiasi setinggi-tingginya kepada Rayhan beserta tim guru pembimbing yang telah mendedikasikan waktu dalam karantina klinik sains intensif selama tiga bulan terakhir.</p>
+        <p>Kepala MA AL-GHOZALI menyampaikan apresiasi setinggi-tingginya kepada Rayhan beserta tim guru pembimbing yang telah mendedikasikan waktu dalam karantina klinik sains intensif selama tiga bulan terakhir.</p>
         
         <blockquote>"Kemenangan ini membuktikan bahwa siswa madrasah mampu bersaing di baris terdepan sains murni dengan tetap membawa nilai spiritualitas Al-Qur'an dalam membedah fenomena alam semesta," ujar Kepala Madrasah dalam amanat apel pagi.</blockquote>
         
-        <p>Dengan capaian ini, Ahmad Rayhan Al-Fatih dipastikan melenggang mewakili provinsi Jawa Barat menuju ajang KSM Tingkat Nasional yang akan dihelat pada pertengahan tahun ini. Semoga ikhtiar ini membawa keberkahan dan memicu semangat riset bagi seluruh civitas akademika MA AL-GHAZALI.</p>
+        <p>Dengan capaian ini, Ahmad Rayhan Al-Fatih dipastikan melenggang mewakili provinsi Jawa Barat menuju ajang KSM Tingkat Nasional yang akan dihelat pada pertengahan tahun ini. Semoga ikhtiar ini membawa keberkahan dan memicu semangat riset bagi seluruh civitas akademika MA AL-GHOZALI.</p>
       `
     },
     {
       id: "berita-2",
       slug: "pembukaan-ppdb-tahun-ajaran-2026-2027",
-      title: "Resmi Dibuka: PPDB MA AL-GHAZALI Tahun Ajaran 2026/2027 Jalur Prestasi & Reguler",
+      title: "Resmi Dibuka: PPDB MA AL-GHOZALI Tahun Ajaran 2026/2027 Jalur Prestasi & Reguler",
       category: "Pengumuman",
       date: "01 Maret 2026",
       author: "Panitia PPDB",
       readTime: "3 menit baca",
       thumbnail: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80",
-      summary: "Pendaftaran Peserta Didik Baru (PPDB) MA AL-GHAZALI TA 2026/2027 telah dibuka secara daring dengan kuota beasiswa bagi hafidz Al-Qur'an dan juara sains.",
+      summary: "Pendaftaran Peserta Didik Baru (PPDB) MA AL-GHOZALI TA 2026/2027 telah dibuka secara daring dengan kuota beasiswa bagi hafidz Al-Qur'an dan juara sains.",
       content: `
-        <p>Panitia Penerimaan Peserta Didik Baru (PPDB) MA AL-GHAZALI secara resmi mengumumkan pembukaan pendaftaran siswa baru untuk Tahun Ajaran 2026/2027. Pada periode tahun ini, madrasah membuka dua gelombang pendaftaran dengan pilihan jalur beasiswa prestasi dan jalur reguler.</p>
+        <p>Panitia Penerimaan Peserta Didik Baru (PPDB) MA AL-GHOZALI secara resmi mengumumkan pembukaan pendaftaran siswa baru untuk Tahun Ajaran 2026/2027. Pada periode tahun ini, madrasah membuka dua gelombang pendaftaran dengan pilihan jalur beasiswa prestasi dan jalur reguler.</p>
         
         <p>Tersedia beasiswa bebas biaya pendidikan bagi calon santri yang memiliki hafalan Al-Qur'an minimal 5 Juz (Jalur Tahfidz) atau memiliki sertifikat juara minimal tingkat kabupaten/kota (Jalur Prestasi Akademik & Bakat).</p>
         
@@ -418,7 +418,7 @@ export const initialSchoolData = {
     {
       id: "berita-3",
       slug: "integrasi-ai-literacy-dalam-kurikulum-madrasah",
-      title: "Inovasi Pembelajaran: MA AL-GHAZALI Hadirkan Kurikulum AI Literacy & Coding",
+      title: "Inovasi Pembelajaran: MA AL-GHOZALI Hadirkan Kurikulum AI Literacy & Coding",
       category: "Akademik",
       date: "20 Februari 2026",
       author: "Tim Kurikulum",
@@ -426,7 +426,7 @@ export const initialSchoolData = {
       thumbnail: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
       summary: "Madrasah memperkuat kompetensi siswa abad ke-21 melalui integrasi mata pelajaran pemodelan AI dan dasar pemrograman cerdas beretika Islam.",
       content: `
-        <p>Menjawab tantangan revolusi industri yang kian cepat, MA AL-GHAZALI meluncurkan pembaruan kurikulum pengayaan dengan memasukkan Artificial Intelligence (AI) Literacy dan Dasar Pemrograman ke dalam silabus keterampilan komputer siswa.</p>
+        <p>Menjawab tantangan revolusi industri yang kian cepat, MA AL-GHOZALI meluncurkan pembaruan kurikulum pengayaan dengan memasukkan Artificial Intelligence (AI) Literacy dan Dasar Pemrograman ke dalam silabus keterampilan komputer siswa.</p>
         
         <p>Program ini dirancang agar para santri tidak hanya menjadi konsumen teknologi, melainkan produsen solusi digital yang beretika. Siswa diajarkan bagaimana algoritma bekerja, bagaimana mengoptimalkan kecerdasan buatan untuk riset akademik, serta batasan syariat dan etika dalam pemanfaatan teknologi data.</p>
       `
@@ -437,12 +437,12 @@ export const initialSchoolData = {
       title: "Gema Shalawat dan Penutupan Karantina Tahfidz Menyambut Isra Mi'raj 1447 H",
       category: "Keagamaan",
       date: "14 Februari 2026",
-      author: "OSIS Al-Ghazali",
+      author: "OSIS Al-Ghozali",
       readTime: "4 menit baca",
       thumbnail: "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=1200&q=80",
       summary: "Ratusan santri menuntaskan program tasmi' 5 hingga 15 juz Al-Qur'an serentak dalam suasana penuh haru di Masjid Jami' As-Salam.",
       content: `
-        <p>Suasana syahdu menyelimuti kompleks MA AL-GHAZALI saat acara Wisuda Tasmi' Karantina Tahfidz semester genap digelar bertepatan dengan momentum peringatan Isra Mi'raj Nabi Muhammad SAW.</p>
+        <p>Suasana syahdu menyelimuti kompleks MA AL-GHOZALI saat acara Wisuda Tasmi' Karantina Tahfidz semester genap digelar bertepatan dengan momentum peringatan Isra Mi'raj Nabi Muhammad SAW.</p>
         
         <p>Sebanyak 42 santri berhasil menyetorkan hafalan sekali duduk di hadapan dewan asatidz dan disaksikan langsung oleh para orang tua yang hadir dengan berlinang air mata bahagia. Kegiatan diakhiri dengan tausiyah hikmah shalat dan gema sholawat nabi oleh grup hadroh madrasah.</p>
       `
@@ -455,7 +455,7 @@ export const initialSchoolData = {
       name: "Faris Maulana, S.Kom.",
       role: "Alumni 2022 — Software Engineer di Tech Unicorn & Lulusan UI",
       avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=300&q=80",
-      quote: "MA AL-GHAZALI memberikan pondasi adab dan nilai keislaman yang sangat kokoh. Di sini saya pertama kali belajar coding di lab madrasah, dibimbing guru yang sabar dan visioner hingga berhasil tembus Fakultas Ilmu Komputer UI.",
+      quote: "MA AL-GHOZALI memberikan pondasi adab dan nilai keislaman yang sangat kokoh. Di sini saya pertama kali belajar coding di lab madrasah, dibimbing guru yang sabar dan visioner hingga berhasil tembus Fakultas Ilmu Komputer UI.",
       rating: 5,
     },
     {
@@ -463,7 +463,7 @@ export const initialSchoolData = {
       name: "Hj. Siti Rahmawati, M.Pd.",
       role: "Orang Tua Siswa (Aisyah Putri, Kelas XI MIPA)",
       avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80",
-      quote: "Sebagai orang tua, kami sangat bersyukur menyekolahkan anak di MA Al-Ghazali Majalaya. Perpaduan antara kurikulum sains modern dengan program tahfidznya sangat terukur. Anak kami menjadi lebih mandiri, santun, dan hafalannya terus bertambah.",
+      quote: "Sebagai orang tua, kami sangat bersyukur menyekolahkan anak di MA Al-Ghozali Majalaya. Perpaduan antara kurikulum sains modern dengan program tahfidznya sangat terukur. Anak kami menjadi lebih mandiri, santun, dan hafalannya terus bertambah.",
       rating: 5,
     },
     {
@@ -479,14 +479,14 @@ export const initialSchoolData = {
       name: "Ustadz H. Lukman Hakim, Lc.",
       role: "Alumni 2018 — Mahasiswa Pascasarjana Universitas Al-Azhar Kairo",
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80",
-      quote: "Kajian kitab turots dan penguasaan bahasa Arab yang diajarkan di MA Al-Ghazali menjadi bekal utama saya ketika menempuh seleksi dan kuliah syariah di Mesir. Madrasah ini benar-benar mencetak kader ulama intelektual.",
+      quote: "Kajian kitab turots dan penguasaan bahasa Arab yang diajarkan di MA Al-Ghozali menjadi bekal utama saya ketika menempuh seleksi dan kuliah syariah di Mesir. Madrasah ini benar-benar mencetak kader ulama intelektual.",
       rating: 5,
     }
   ],
 
   ppdbInfo: {
     academicYear: "2026/2027",
-    headline: "Bersiap Menjadi Bagian dari MA AL-GHAZALI",
+    headline: "Bersiap Menjadi Bagian dari MA AL-GHOZALI",
     subheadline: "Penerimaan Peserta Didik Baru Tahun Ajaran 2026/2027",
     description: "Membuka kesempatan emas bagi putra-putri terbaik bangsa untuk mengenyam pendidikan tingkat menengah atas bernuansa islami, futuristik, dan sarat prestasi.",
     waves: [

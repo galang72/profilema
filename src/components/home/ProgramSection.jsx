@@ -79,7 +79,7 @@ export const ProgramSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full mb-8">
         <SectionHeading
           badge="Kurikulum & Kompetensi"
-          title="Program Unggulan MA AL-GHAZALI"
+          title="Program Unggulan MA AL-GHOZALI"
           subtitle="Enam pilar kurikulum terintegrasi untuk mencetak generasi cerdas, mandiri, dan berakhlakul karimah."
         />
       </div>

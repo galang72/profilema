@@ -36,7 +36,7 @@ export const BeritaPage = () => {
             Warta & Kabar Terkini
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
-            Berita & Informasi <span className="text-gradient-gold">MA AL-GHAZALI</span>
+            Berita & Informasi <span className="text-gradient-gold">MA AL-GHOZALI</span>
           </h1>
           <p className="text-slate-300 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
             Update publikasi kegiatan santri, prestasi olimpiade, agenda akademik, serta pengumuman resmi madrasah.

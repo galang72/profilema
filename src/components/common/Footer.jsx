@@ -49,7 +49,7 @@ export const Footer = () => {
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-800/90 to-emerald-950/90 border border-gold-400/50 flex items-center justify-center shadow-glow-emerald p-1">
                 <img
                   src={data.identity.logoUrl}
-                  alt="Logo MA AL-GHAZALI"
+                  alt="Logo MA AL-GHOZALI"
                   className="w-full h-full object-contain drop-shadow-md"
                 />
               </div>
@@ -210,7 +210,7 @@ export const Footer = () => {
 
         {/* Bottom Bar: Copyright & Back to Top */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© 2026 MA AL-GHAZALI. All Rights Reserved.</p>
+          <p>© 2026 MA AL-GHOZALI. All Rights Reserved.</p>
           <div className="flex items-center gap-4">
             <span className="text-emerald-500/70">Terdaftar di Kementerian Agama Republik Indonesia</span>
             <button

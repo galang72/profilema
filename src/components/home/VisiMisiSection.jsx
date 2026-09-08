@@ -80,7 +80,7 @@ export const VisiMisiSection = () => {
                 <div>
                   <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-gold-500/15 border border-gold-400/40 text-gold-300 text-xs font-bold uppercase tracking-wider mb-6">
                     <Compass className="w-4 h-4 text-gold-400" />
-                    <span>Visi Utama MA AL-GHAZALI</span>
+                    <span>Visi Utama MA AL-GHOZALI</span>
                   </div>
 
                   <div className="mb-6 pb-6 border-b border-emerald-700/30">
@@ -169,7 +169,7 @@ export const VisiMisiSection = () => {
 
                 <div className="mt-6 pt-4 border-t border-emerald-800/40 flex items-center justify-between text-xs text-slate-400">
                   <span>Berlandaskan Kurikulum Nasional & Tsaqafah Islamiyah</span>
-                  <span className="text-gold-400 font-semibold">MA AL-GHAZALI</span>
+                  <span className="text-gold-400 font-semibold">MA AL-GHOZALI</span>
                 </div>
 
               </div>

@@ -82,7 +82,7 @@ export const PpdbPage = () => {
           <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 p-2 rounded-2xl bg-emerald-950/80 border border-gold-400/50 shadow-glow-gold flex items-center justify-center animate-float-medium">
             <img
               src="/logo-alghazali.png"
-              alt="Logo Resmi MA AL-GHAZALI"
+              alt="Logo Resmi MA AL-GHOZALI"
               className="w-full h-full object-contain drop-shadow-lg"
             />
           </div>
@@ -91,7 +91,7 @@ export const PpdbPage = () => {
             Tahun Ajaran {ppdbInfo.academicYear}
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
-            Portal PPDB Online <span className="text-gradient-gold">MA AL-GHAZALI</span>
+            Portal PPDB Online <span className="text-gradient-gold">MA AL-GHOZALI</span>
           </h1>
           <p className="text-slate-200 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
             Daftarkan putra-putri Anda untuk menjadi bagian dari keluarga besar madrasah unggulan yang mengintegrasikan sains, akhlak mulia, dan teknologi.
@@ -259,10 +259,10 @@ export const PpdbPage = () => {
                     </div>
                     <h3 className="text-xl sm:text-2xl font-bold text-white">Pendaftaran Online Saat Ini Ditutup</h3>
                     <p className="text-xs sm:text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
-                      Sistem pendaftaran peserta didik baru online MA AL-GHAZALI sedang ditutup sementara oleh panitia madrasah.
+                      Sistem pendaftaran peserta didik baru online MA AL-GHOZALI sedang ditutup sementara oleh panitia madrasah.
                     </p>
                     <a
-                      href={`https://wa.me/${contact.whatsapp}?text=Halo%20Panitia%20PPDB%20MA%20AL-GHAZALI,%20saya%20ingin%20bertanya%20informasi%20pendaftaran.`}
+                      href={`https://wa.me/${contact.whatsapp}?text=Halo%20Panitia%20PPDB%20MA%20AL-GHOZALI,%20saya%20ingin%20bertanya%20informasi%20pendaftaran.`}
                       target="_blank"
                       rel="noreferrer"
                       className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-bold text-emerald-950 bg-gradient-to-r from-amber-300 to-gold-400 hover:from-amber-200 shadow-glow-gold mt-2"

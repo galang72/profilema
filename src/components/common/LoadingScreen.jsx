@@ -48,7 +48,7 @@ export const LoadingScreen = ({ onFinish }) => {
         <div className="relative z-10 w-14 h-14 rounded-full bg-gradient-to-br from-emerald-800 to-emerald-950 border border-gold-400 flex items-center justify-center shadow-lg p-1.5">
           <img
             src="/logo-alghazali.png"
-            alt="Logo MA AL-GHAZALI"
+            alt="Logo MA AL-GHOZALI"
             className="w-full h-full object-contain drop-shadow-md"
           />
         </div>
@@ -56,7 +56,7 @@ export const LoadingScreen = ({ onFinish }) => {
 
       {/* Identity */}
       <h2 className="text-xl font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-emerald-300 uppercase mb-2">
-        MA AL-GHAZALI
+        MA AL-GHOZALI
       </h2>
       <p className="text-xs text-emerald-200/60 tracking-widest uppercase mb-6 font-medium">
         Pendidikan Islam Modern &middot; Berilmu &middot; Berakhlak &middot; Berprestasi
