@@ -40,6 +40,47 @@ import {
 } from 'lucide-react';
 import { useSchool } from '../context/SchoolContext';
 
+// Helper to compress uploaded images on canvas before storing to base64
+const compressImage = (file, maxWidth = 800, maxHeight = 800, quality = 0.75) => {
+  return new Promise((resolve) => {
+    if (!file || !file.type.startsWith('image/')) {
+      resolve(null);
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        let width = img.width;
+        let height = img.height;
+
+        if (width > height) {
+          if (width > maxWidth) {
+            height = Math.round((height * maxWidth) / width);
+            width = maxWidth;
+          }
+        } else {
+          if (height > maxHeight) {
+            width = Math.round((width * maxHeight) / height);
+            height = maxHeight;
+          }
+        }
+
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+        resolve(canvas.toDataURL('image/jpeg', quality));
+      };
+      img.onerror = () => resolve(e.target.result);
+      img.src = e.target.result;
+    };
+    reader.onerror = () => resolve(null);
+    reader.readAsDataURL(file);
+  });
+};
+
 export const AdminDashboardPage = () => {
   const { 
     data, 
@@ -130,17 +171,17 @@ export const AdminDashboardPage = () => {
 
   // Local copy for identity & contact editing
   const [editIdentity, setEditIdentity] = useState({
-    name: data.identity.name,
-    motto: data.identity.motto,
-    subheadline: data.identity.subheadline,
-    accreditation: data.identity.accreditation,
+    name: data.identity?.name || '',
+    motto: data.identity?.motto || '',
+    subheadline: data.identity?.subheadline || '',
+    accreditation: data.identity?.accreditation || '',
   });
 
   const [editContact, setEditContact] = useState({
-    address: data.contact.address,
-    phone: data.contact.phone,
-    whatsapp: data.contact.whatsapp,
-    email: data.contact.email,
+    address: data.contact?.address || '',
+    phone: data.contact?.phone || '',
+    whatsapp: data.contact?.whatsapp || '',
+    email: data.contact?.email || '',
   });
 
   const [editVisionMission, setEditVisionMission] = useState({
@@ -157,6 +198,37 @@ export const AdminDashboardPage = () => {
       ? data.principal.greetingText.join('\n\n')
       : data.principal?.greetingText || '',
   });
+
+  // Sync edit states when SchoolContext data changes
+  useEffect(() => {
+    if (data) {
+      setEditIdentity({
+        name: data.identity?.name || '',
+        motto: data.identity?.motto || '',
+        subheadline: data.identity?.subheadline || '',
+        accreditation: data.identity?.accreditation || '',
+      });
+      setEditContact({
+        address: data.contact?.address || '',
+        phone: data.contact?.phone || '',
+        whatsapp: data.contact?.whatsapp || '',
+        email: data.contact?.email || '',
+      });
+      setEditVisionMission({
+        vision: data.visionMission?.vision || '',
+        visionElaboration: data.visionMission?.visionElaboration || '',
+      });
+      setEditPrincipal({
+        name: data.principal?.name || '',
+        title: data.principal?.title || '',
+        photoUrl: data.principal?.photoUrl || '',
+        greetingTitle: data.principal?.greetingTitle || '',
+        greetingText: Array.isArray(data.principal?.greetingText)
+          ? data.principal.greetingText.join('\n\n')
+          : data.principal?.greetingText || '',
+      });
+    }
+  }, [data]);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -366,40 +438,154 @@ export const AdminDashboardPage = () => {
 
   if (!isAuthenticated) {
     return (
-      <div className="pt-32 pb-24 min-h-screen bg-[#011611] flex items-center justify-center px-4">
-        <div className="w-full max-w-md glass-card p-8 rounded-3xl border border-gold-500/30 shadow-2xl bg-gradient-to-b from-[#032920]/95 to-[#011611]/95 text-center relative overflow-hidden">
-          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-emerald-800 to-emerald-950 border border-gold-400 p-2 mx-auto mb-4 shadow-glow-gold flex items-center justify-center">
-            <img src="/logo-alghazali.png" alt="Logo MA AL-GHOZALI" className="w-full h-full object-contain" />
-          </div>
+      <div className="pt-32 sm:pt-36 pb-24 bg-transparent min-h-screen text-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           
-          <h2 className="text-2xl font-extrabold text-white mb-1">Admin Portal MA AL-GHOZALI</h2>
-          <p className="text-xs text-slate-300 mb-6">Masuk untuk mengelola data sekolah, gelombang PPDB, dan pertanyaan masuk.</p>
+          {/* Header Portal Title */}
+          <div className="text-center space-y-3">
+            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-emerald-800 to-emerald-950 border border-gold-400 p-2 mx-auto shadow-glow-gold flex items-center justify-center animate-float-slow">
+              <img src="/logo-alghazali.png" alt="Logo MA AL-GHOZALI" className="w-full h-full object-contain" />
+            </div>
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/80 border border-gold-500/30 text-gold-400 text-xs font-bold uppercase tracking-wider">
+              <Sparkles className="w-3.5 h-3.5 text-gold-400" />
+              Pusat Portal Digital & Informasi
+            </span>
+            <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+              Portal Admin & Layanan <span className="text-gradient-gold">MA AL-GHOZALI</span>
+            </h1>
+            <p className="text-slate-300 max-w-2xl mx-auto text-xs sm:text-base leading-relaxed">
+              Pilih portal layanan digital yang ingin Anda akses di bawah ini.
+            </p>
+          </div>
 
-          <form onSubmit={handleLogin} className="space-y-4 text-left">
-            <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1">Kata Sandi Administrator</label>
-              <input
-                type="password"
-                required
-                value={loginPass}
-                onChange={(e) => setLoginPass(e.target.value)}
-                placeholder="Masukkan kata sandi..."
-                className="w-full px-4 py-3 rounded-xl bg-emerald-950/70 border border-emerald-700/40 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-gold-400"
-              />
-              <span className="text-[11px] text-slate-400 mt-1 block">Kata sandi demo: <strong className="text-amber-300 font-mono">admin123</strong></span>
+          {/* 3 UTAMA PORTAL CARDS */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            {/* CARD 1: ADMIN WEBSITE MA AL-GHOZALI */}
+            <div className="group p-6 rounded-3xl glass-card-gold border-2 border-gold-400/60 shadow-2xl hover:border-gold-300 transition-all duration-300 relative overflow-hidden flex flex-col justify-between">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gold-400/10 rounded-full blur-2xl group-hover:scale-150 transition-transform" />
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-800 to-emerald-950 border border-gold-400 p-2.5 shadow-glow-gold flex items-center justify-center text-gold-300">
+                    <Globe className="w-6 h-6" />
+                  </div>
+                  <span className="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-gold-500/20 text-gold-300 border border-gold-400/40">
+                    Kelola Website
+                  </span>
+                </div>
+
+                <h3 className="text-xl font-extrabold text-white mb-2 group-hover:text-amber-200 transition-colors">
+                  1. Admin Website MA AL-GHOZALI
+                </h3>
+                
+                <p className="text-xs text-slate-300 leading-relaxed mb-6">
+                  Kelola & edit seluruh tampilan website: data PPDB online, pesan masuk, berita, foto galeri, prestasi, fasilitas, dan profil pimpinan.
+                </p>
+              </div>
+
+              {/* Login Form embedded directly inside Card 1 */}
+              <form onSubmit={handleLogin} className="space-y-3 pt-4 border-t border-gold-400/30">
+                <div>
+                  <label className="block text-[11px] font-bold text-amber-300 uppercase tracking-wider mb-1">
+                    Kata Sandi Administrator
+                  </label>
+                  <input
+                    type="password"
+                    required
+                    value={loginPass}
+                    onChange={(e) => setLoginPass(e.target.value)}
+                    placeholder="Masukkan kata sandi..."
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-emerald-950/90 border border-gold-500/40 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-gold-300"
+                  />
+                  <span className="text-[10px] text-slate-400 mt-1 block">Kata sandi demo: <strong className="text-amber-300 font-mono">admin123</strong></span>
+                </div>
+
+                {loginError && (
+                  <p className="text-[11px] text-rose-300 bg-rose-950/60 p-2 rounded-lg border border-rose-800/40">{loginError}</p>
+                )}
+
+                <button
+                  type="submit"
+                  className="w-full py-3 rounded-xl font-bold text-xs text-emerald-950 bg-gradient-to-r from-amber-300 via-gold-400 to-amber-400 hover:from-amber-200 hover:to-gold-300 shadow-glow-gold transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <Lock className="w-3.5 h-3.5 text-emerald-950" />
+                  <span>Buka Panel Admin Website &rarr;</span>
+                </button>
+              </form>
             </div>
 
-            {loginError && (
-              <p className="text-xs text-rose-400 bg-rose-950/50 p-2.5 rounded-lg border border-rose-800/40">{loginError}</p>
-            )}
-
-            <button
-              type="submit"
-              className="w-full py-3.5 rounded-xl font-bold text-sm text-emerald-950 bg-gradient-to-r from-amber-300 via-gold-400 to-amber-400 hover:from-amber-200 hover:to-gold-300 shadow-glow-gold transition-all"
+            {/* CARD 2: RDM (RAPOR DIGITAL MADRASAH) */}
+            <a
+              href="https://rdm.ma-alghozali.my.id/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-6 rounded-3xl glass-card border border-emerald-500/30 hover:border-emerald-400/80 shadow-2xl transition-all duration-300 relative overflow-hidden flex flex-col justify-between bg-gradient-to-b from-[#022c23]/90 to-[#011a14]/90"
             >
-              Buka Panel Admin
-            </button>
-          </form>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl group-hover:scale-150 transition-transform" />
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-900/90 border border-emerald-500/50 p-2.5 shadow-glow-emerald flex items-center justify-center text-emerald-300">
+                    <BookOpen className="w-6 h-6" />
+                  </div>
+                  <span className="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                    Aplikasi Resmi Kemenag
+                  </span>
+                </div>
+
+                <h3 className="text-xl font-extrabold text-white mb-2 group-hover:text-emerald-300 transition-colors flex items-center gap-2">
+                  2. RDM (Rapor Digital) <ExternalLink className="w-4 h-4 text-emerald-400" />
+                </h3>
+                
+                <p className="text-xs text-slate-300 leading-relaxed mb-6">
+                  Akses langsung ke Portal RDM Kemenag RI MA AL-GHOZALI untuk penginputan nilai harian, nilai semester, leger, dan cetak Rapor Digital Santri.
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-emerald-700/30 flex items-center justify-between">
+                <span className="text-xs font-bold text-emerald-300 font-mono">rdm.ma-alghozali.my.id</span>
+                <span className="px-4 py-2 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs font-bold flex items-center gap-1.5 group-hover:bg-emerald-500/30 transition-colors">
+                  Buka RDM <ExternalLink className="w-3.5 h-3.5" />
+                </span>
+              </div>
+            </a>
+
+            {/* CARD 3: E-RAPOR MA AL-GHOZALI */}
+            <a
+              href="https://e-rapor.ma-alghozali.my.id/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-6 rounded-3xl glass-card border border-amber-500/30 hover:border-gold-400/80 shadow-2xl transition-all duration-300 relative overflow-hidden flex flex-col justify-between bg-gradient-to-b from-[#032f25]/90 to-[#011a14]/90"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl group-hover:scale-150 transition-transform" />
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-12 h-12 rounded-2xl bg-amber-950/90 border border-gold-400/50 p-2.5 shadow-glow-gold flex items-center justify-center text-amber-300">
+                    <FileSpreadsheet className="w-6 h-6" />
+                  </div>
+                  <span className="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/40">
+                    Portal Rapor Santri
+                  </span>
+                </div>
+
+                <h3 className="text-xl font-extrabold text-white mb-2 group-hover:text-gold-300 transition-colors flex items-center gap-2">
+                  3. E-RAPOR MA AL-GHOZALI <ExternalLink className="w-4 h-4 text-gold-400" />
+                </h3>
+                
+                <p className="text-xs text-slate-300 leading-relaxed mb-6">
+                  Akses langsung ke Portal E-Rapor Elektronik MA AL-GHOZALI untuk evaluasi pembelajaran dan pengolahan nilai rapor santri terpadu.
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-amber-700/30 flex items-center justify-between">
+                <span className="text-xs font-bold text-amber-300 font-mono">e-rapor.ma-alghozali.my.id</span>
+                <span className="px-4 py-2 rounded-xl bg-gold-400/20 border border-gold-400/40 text-gold-300 text-xs font-bold flex items-center gap-1.5 group-hover:bg-gold-400/30 transition-colors">
+                  Buka E-Rapor <ExternalLink className="w-3.5 h-3.5" />
+                </span>
+              </div>
+            </a>
+
+          </div>
+
         </div>
       </div>
     );
@@ -1316,18 +1502,17 @@ export const AdminDashboardPage = () => {
                         <input
                           type="file"
                           accept="image/*"
-                          onChange={(e) => {
+                          onChange={async (e) => {
                             const file = e.target.files?.[0];
                             if (file) {
-                              if (file.size > 8 * 1024 * 1024) {
-                                alert('Ukuran foto terlalu besar. Maksimal 8MB.');
-                                return;
+                              triggerToast('Mengompres & memproses foto...');
+                              const compressed = await compressImage(file, 800, 800, 0.75);
+                              if (compressed) {
+                                setEditPrincipal(prev => ({ ...prev, photoUrl: compressed }));
+                                triggerToast('Foto pimpinan berhasil dipilih & dioptimalkan!');
+                              } else {
+                                alert('Gagal memproses foto.');
                               }
-                              const reader = new FileReader();
-                              reader.onloadend = () => {
-                                setEditPrincipal(prev => ({ ...prev, photoUrl: reader.result }));
-                              };
-                              reader.readAsDataURL(file);
                             }
                           }}
                           className="hidden"
@@ -1342,7 +1527,7 @@ export const AdminDashboardPage = () => {
                         className="w-full px-4 py-2.5 rounded-xl bg-emerald-950/70 border border-emerald-700/40 text-white text-sm font-mono text-xs"
                       />
                     </div>
-                    <p className="text-[11px] text-slate-400 mt-1">Anda dapat menekan tombol <strong>"📁 Pilih Foto dari HP / Laptop"</strong> untuk langsung memilih foto dari galeri HP atau komputer Anda!</p>
+                    <p className="text-[11px] text-slate-400 mt-1">Foto otomatis dioptimalkan agar ringan &amp; tersimpan sempurna tanpa error.</p>
                   </div>
 
                   <div>
@@ -1420,13 +1605,36 @@ export const AdminDashboardPage = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1">URL Gambar Thumbnail</label>
-                <input
-                  type="url"
-                  value={newNews.thumbnail}
-                  onChange={(e) => setNewNews({ ...newNews, thumbnail: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-emerald-950/70 border border-emerald-700/40 text-white text-sm"
-                />
+                <label className="block text-xs font-semibold text-slate-300 mb-1">Gambar Thumbnail Berita</label>
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <label className="cursor-pointer px-4 py-2.5 rounded-xl bg-gold-500/20 hover:bg-gold-500/30 border border-gold-400/50 text-gold-300 text-xs font-bold flex items-center justify-center gap-2 transition-colors shrink-0">
+                    <ImageIcon className="w-4 h-4 text-gold-400" />
+                    <span>📁 Upload Foto</span>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={async (e) => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          triggerToast('Mengompres foto berita...');
+                          const compressed = await compressImage(file, 800, 600, 0.75);
+                          if (compressed) {
+                            setNewNews(prev => ({ ...prev, thumbnail: compressed }));
+                            triggerToast('Foto berita berhasil diunggah & dioptimalkan!');
+                          }
+                        }
+                      }}
+                      className="hidden"
+                    />
+                  </label>
+                  <input
+                    type="text"
+                    value={newNews.thumbnail}
+                    onChange={(e) => setNewNews({ ...newNews, thumbnail: e.target.value })}
+                    placeholder="Atau tempel URL gambar..."
+                    className="w-full px-4 py-2.5 rounded-xl bg-emerald-950/70 border border-emerald-700/40 text-white text-sm"
+                  />
+                </div>
               </div>
 
               <div>
@@ -1521,14 +1729,37 @@ export const AdminDashboardPage = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1">URL Gambar</label>
-                <input
-                  type="url"
-                  required
-                  value={newGallery.image}
-                  onChange={(e) => setNewGallery({ ...newGallery, image: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-emerald-950/70 border border-emerald-700/40 text-white text-sm"
-                />
+                <label className="block text-xs font-semibold text-slate-300 mb-1">Foto Galeri</label>
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <label className="cursor-pointer px-4 py-2.5 rounded-xl bg-gold-500/20 hover:bg-gold-500/30 border border-gold-400/50 text-gold-300 text-xs font-bold flex items-center justify-center gap-2 transition-colors shrink-0">
+                    <ImageIcon className="w-4 h-4 text-gold-400" />
+                    <span>📁 Upload Foto</span>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={async (e) => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          triggerToast('Mengompres foto galeri...');
+                          const compressed = await compressImage(file, 1000, 750, 0.75);
+                          if (compressed) {
+                            setNewGallery(prev => ({ ...prev, image: compressed }));
+                            triggerToast('Foto galeri berhasil diunggah & dioptimalkan!');
+                          }
+                        }
+                      }}
+                      className="hidden"
+                    />
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={newGallery.image}
+                    onChange={(e) => setNewGallery({ ...newGallery, image: e.target.value })}
+                    placeholder="Atau tempel URL gambar..."
+                    className="w-full px-4 py-2.5 rounded-xl bg-emerald-950/70 border border-emerald-700/40 text-white text-sm"
+                  />
+                </div>
               </div>
 
               <div>
@@ -1736,14 +1967,37 @@ export const AdminDashboardPage = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1">URL Gambar Fasilitas</label>
-                <input
-                  type="url"
-                  required
-                  value={newFacility.image}
-                  onChange={(e) => setNewFacility({ ...newFacility, image: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-emerald-950/70 border border-emerald-700/40 text-white text-sm"
-                />
+                <label className="block text-xs font-semibold text-slate-300 mb-1">Gambar Fasilitas Kampus</label>
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <label className="cursor-pointer px-4 py-2.5 rounded-xl bg-gold-500/20 hover:bg-gold-500/30 border border-gold-400/50 text-gold-300 text-xs font-bold flex items-center justify-center gap-2 transition-colors shrink-0">
+                    <ImageIcon className="w-4 h-4 text-gold-400" />
+                    <span>📁 Upload Foto</span>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={async (e) => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          triggerToast('Mengompres foto fasilitas...');
+                          const compressed = await compressImage(file, 1000, 750, 0.75);
+                          if (compressed) {
+                            setNewFacility(prev => ({ ...prev, image: compressed }));
+                            triggerToast('Foto fasilitas berhasil diunggah & dioptimalkan!');
+                          }
+                        }
+                      }}
+                      className="hidden"
+                    />
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={newFacility.image}
+                    onChange={(e) => setNewFacility({ ...newFacility, image: e.target.value })}
+                    placeholder="Atau tempel URL gambar..."
+                    className="w-full px-4 py-2.5 rounded-xl bg-emerald-950/70 border border-emerald-700/40 text-white text-sm"
+                  />
+                </div>
               </div>
 
               <div>

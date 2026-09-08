@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { initialSchoolData } from '../data/schoolData';
 
-const LOCAL_STORAGE_KEY = 'MA_ALGHOZALI_SITE_DATA_V10';
+const LOCAL_STORAGE_KEY = 'MA_ALGHOZALI_SITE_DATA_V11';
 
 const SchoolContext = createContext(null);
 
@@ -9,7 +9,7 @@ export const SchoolProvider = ({ children }) => {
   const [data, setData] = useState(() => {
     try {
       // Clear legacy cache keys from earlier versions
-      ['MA_ALGHAZALI_SITE_DATA_V1', 'MA_ALGHAZALI_SITE_DATA_V2', 'MA_ALGHAZALI_SITE_DATA_V3', 'MA_ALGHAZALI_SITE_DATA_V4', 'MA_ALGHAZALI_SITE_DATA_V5', 'MA_ALGHAZALI_SITE_DATA_V6', 'MA_ALGHOZALI_SITE_DATA_V9'].forEach(k => localStorage.removeItem(k));
+      ['MA_ALGHAZALI_SITE_DATA_V1', 'MA_ALGHAZALI_SITE_DATA_V2', 'MA_ALGHAZALI_SITE_DATA_V3', 'MA_ALGHAZALI_SITE_DATA_V4', 'MA_ALGHAZALI_SITE_DATA_V5', 'MA_ALGHAZALI_SITE_DATA_V6', 'MA_ALGHOZALI_SITE_DATA_V9', 'MA_ALGHOZALI_SITE_DATA_V10'].forEach(k => localStorage.removeItem(k));
 
       const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
       if (saved) {
